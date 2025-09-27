@@ -1,0 +1,15 @@
+root = "."
+tmp_dir = "tmp"
+
+[build]
+cmd = "go build -o ./tmp/server ${APP_PATH:-./cmd}"  # default para ./cmd
+bin = "./tmp/server"
+include_ext = ["go","mod","sum","yaml","yml","json","toml","env","tpl","tmpl","html"]
+exclude_dir = ["vendor","tmp","bin",".git",".github",".vscode"]
+
+[log]
+time = true
+
+[env]
+APP_PATH = "./cmd"   # <<--- AQUI
+GIN_MODE = "debug"
